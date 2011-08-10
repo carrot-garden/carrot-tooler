@@ -1,0 +1,25 @@
+<project name="eclipse-backup.ant" default="backup" basedir=".">
+
+	<property environment="env" />
+
+	<target name="backup">
+
+		<property name="workspace" value="${basedir}/.." />
+		<property name="workbench" value="${workspace}/.metadata/.plugins/org.eclipse.ui.workbench" />
+
+		<echo message="workspace : ${workspace}" />
+		<echo message="workbench : ${workbench}" />
+
+		<echo message="start" />
+
+		<copy todir="${workbench}/backup">
+			<fileset dir="${workbench}">
+				<filename name="*.xml" />
+			</fileset>
+		</copy>
+
+		<echo message="finish" />
+
+	</target>
+
+</project>

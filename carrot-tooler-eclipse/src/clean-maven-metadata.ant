@@ -1,0 +1,25 @@
+<project name="clean-plugin-m2e-metadata.ant" default="clean" basedir=".">
+
+	<property environment="env" />
+
+	<target name="clean">
+
+		<property name="mvn_home" value="${user.home}/.m2" />
+		<property name="mvn_repo" value="${mvn_home}/repository" />
+
+		<echo message="clean start" />
+		<echo message="(this can take a minute or so)" />
+
+		<delete verbose="true" dir="${mvn_repo}/.cache" />
+
+		<delete verbose="true">
+			<fileset dir="${mvn_repo}" includes="**/m2e-lastUpdated.properties" />
+			<fileset dir="${mvn_repo}" includes="**/_maven.repositories" />
+			<fileset dir="${mvn_repo}" includes="**/resolver-status.properties" />
+		</delete>
+
+		<echo message="clean finish" />
+
+	</target>
+
+</project>

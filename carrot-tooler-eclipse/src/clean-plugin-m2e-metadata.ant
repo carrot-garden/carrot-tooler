@@ -1,0 +1,27 @@
+<project name="clean-plugin-metadata.ant" default="clean" basedir=".">
+
+	<property environment="env" />
+
+	<property name="workspace" value="${basedir}/.." />
+	<property name="m2e_home" value="${workspace}/.metadata/.plugins/org.maven.ide.eclipse" />
+
+	<echo message="workspace : ${workspace}" />
+	<echo message="m2e_home  : ${m2e_home}" />
+
+	<target name="clean">
+
+		<echo message="clean start" />
+		<echo message="(this should be fast)" />
+
+		<delete verbose="true" dir="${m2e_home}/nexus" />
+
+		<delete verbose="true">
+			<fileset dir="${m2e_home}" includes="*.container" />
+			<fileset dir="${m2e_home}" includes="workspace*.*" />
+		</delete>
+
+		<echo message="clean finish" />
+
+	</target>
+
+</project>
