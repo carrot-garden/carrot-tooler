@@ -4,10 +4,12 @@
 
 	<target name="backup">
 
-		<property name="workspace" value="${basedir}/.." />
-		<property name="workbench" value="${workspace}/.metadata/.plugins/org.eclipse.ui.workbench" />
+		<echo message="basedir   : ${basedir}" />
 
+		<property name="workspace" value="${basedir}" />
 		<echo message="workspace : ${workspace}" />
+
+		<property name="workbench" value="${workspace}/.metadata/.plugins/org.eclipse.ui.workbench" />
 		<echo message="workbench : ${workbench}" />
 
 		<echo message="start" />
